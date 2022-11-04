@@ -4,11 +4,10 @@ class Book:
         self.title = title
         self.author = author
         self.genre = genre
-        self.check_out = False
+        self.is_checked_out = False
     
-    def check_out_status(self, book_title, status):
-        if book_title == self.title:
-            self.check_out = status
+    def update_check_out(self, status):
+        self.is_checked_out = True if "checked-out" in status else False
     
     def hyphenate_title(self):
         # Replace all non alphanumerical characters with a hyphen
@@ -31,3 +30,4 @@ class Book:
                 index += 1
 
         return "".join(hyphenated_title)
+

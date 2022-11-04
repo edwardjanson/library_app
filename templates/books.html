@@ -14,13 +14,21 @@
     </nav>
 </header>
 <main>
+    {% if error %}
+    <span>Please make sure to add a book title, author, and genre</span>
+    {% endif %}
     {% for book in books %}  
     <div>
       <p>
-            {{ book.title }}: {{ book.genre }} 
-            <form action="/books" method="post">
-                <input name="check-out-status" type="radio" value="check-in" onchange="this.form.submit()"/>
-                <input name="check-out-status" type="radio" value="check-out" onchange="this.form.submit()"/>
+            <a href=/books/{{ book.hyphenate_title() }}>{{ book.title }}</a>
+            <form action="/books/{{ book.hyphenate_title() }}/update" method="post">
+                {% if book.is_checked_out %}
+                <span>Checked-in <input name="check-out-status" type="radio" value="checked-in" onchange="this.form.submit()"/></span>
+                <span>Checked-out <input name="check-out-status" type="radio" value="checked-out" onchange="this.form.submit()" checked/></span>
+                {% else %}
+                <span>Checked-in <input name="check-out-status" type="radio" value="checked-in" onchange="this.form.submit()" checked/></span>
+                <span>Checked-out <input name="check-out-status" type="radio" value="checked-out" onchange="this.form.submit()"/></span>
+                {% endif %}
             </form>
             <form action="/books/{{ book.hyphenate_title() }}/delete" method="post">
             <input type="submit" value="Remove Book">
@@ -28,7 +36,7 @@
       </p>
     </div>
     {% endfor %}
-    <form action="/books" method="post">
+    <form action="/books/create" method="post">
       <label for="title">Title</label>
       <input type="text" name="title" id="title">
       <label for="author">Author</label>

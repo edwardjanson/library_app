@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Books
+{% endblock %}
+
+{% block main %}
+<header>
+    <h1 id="logo">CodeClan Library</h1>
+    <nav>
+        <ul>
+            <li><a href="/home">Home</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div>
+        <span>Title: {{ book.title }}</span>
+        <span>Author: {{ book.author }}</span>
+        <span>Genre: {{ book.genre }}</span>
+    </div>
+</main>
+{% endblock %}
