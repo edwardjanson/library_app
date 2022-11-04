@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Books
+{% endblock %}
+
+{% block main %}
+<header>
+    <h1 id="logo">CodeClan Library</h1>
+    <nav>
+        <ul>
+            <li><a href="/home">Home</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    {% for book in books %}  
+    <div>
+      <p>
+            {{ book.title }}: {{ book.genre }} 
+            <form action="/books" method="post">
+                <input name="check-out-status" type="radio" value="check-in" onchange="this.form.submit()"/>
+                <input name="check-out-status" type="radio" value="check-out" onchange="this.form.submit()"/>
+            </form>
+            <form action="/books/{{ book.hyphenate_title() }}/delete" method="post">
+            <input type="submit" value="Remove Book">
+            </form>
+      </p>
+    </div>
+    {% endfor %}
+    <form action="/books" method="post">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title">
+      <label for="author">Author</label>
+      <input type="text" name="author" id="author">
+      <label for="genre">Genre</label>
+      <input type="text" name="genre" id="genre">
+      <input type="submit" value="Add Book">
+    </form>
+</main>
+{% endblock %}
