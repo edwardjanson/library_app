@@ -5,15 +5,9 @@
 {% endblock %}
 
 {% block main %}
-<header>
-    <h1 id="logo">CodeClan Library</h1>
-    <nav>
-        <ul>
-            <li><a href="/home">Home</a></li>
-        </ul>
-    </nav>
-</header>
 <main>
+    <h1>Book Details</h1>
+    <span id="return"><a href="/books">View all books</a></span>
     <div>
         <span>Title: {{ book.title }}</span>
         <span>Author: {{ book.author }}</span>
