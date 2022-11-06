@@ -38,4 +38,8 @@ def update_book_check_out_status(hyphenated_title):
     book = get_book(hyphenated_title)
     status = request.form.getlist("check-out-status")
     update_check_out_status(book, status)
-    return redirect("/books")
+    location = request.args.get("loc")
+    if location == "book":
+        return render_template("book.html", book=book)
+    else:
+        return redirect("/books")

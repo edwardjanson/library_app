@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class Book:
 
     def __init__(self, title, author, genre):
@@ -5,9 +7,12 @@ class Book:
         self.author = author
         self.genre = genre
         self.is_checked_out = False
+        self.check_out_logs = []
     
     def update_check_out(self, status):
         self.is_checked_out = True if "checked-out" in status else False
+        if self.is_checked_out:
+            self.new_checkout_log()
     
     def hyphenate_title(self):
         # Replace all non alphanumerical characters with a hyphen
@@ -30,4 +35,8 @@ class Book:
                 index += 1
 
         return "".join(hyphenated_title)
+    
+    def new_checkout_log(self):
+        date_time = datetime.now().strftime("%m/%d/%Y %I:%M:%S %p")
+        self.check_out_logs.insert(0, date_time)
 
