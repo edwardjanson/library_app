@@ -13,15 +13,29 @@
             Please make sure to add a book title, author, and genre
         </div>
         {% endif %}
-        <div id="add-book">
+        <div class="books-form">
             <form action="/books/create" method="post">
-                <label for="title">Title</label>
-                <input class="form-inputs" type="text" name="title" id="title">
-                <label for="author">Author</label>
-                <input class="form-inputs" type="text" name="author" id="author">
-                <label for="genre">Genre</label>
-                <input class="form-inputs" type="text" name="genre" id="genre">
-                <input class="form-inputs" type="submit" value="Add Book">
+                <h2 class="form-header">Add a book</h2>
+                <label class="title-label" for="title">Title</label>
+                <input class="form-inputs title-input" type="text" name="title" id="title">
+                <label class="author-label" for="author">Author</label>
+                <input class="form-inputs author-input" type="text" name="author" id="author">
+                <label class="genre-label" for="genre">Genre</label>
+                <input class="form-inputs genre-input" type="text" name="genre" id="genre">
+                <input class="form-inputs submit-btn" type="submit" value="Add Book">
+            </form>
+        </div>
+        <div class="books-form">
+            <form action="/books" method="get">
+                <h2 class="form-header">Search books</h2>
+                <label class="title-label" for="title">Title</label>
+                <input class="form-inputs title-input" type="text" name="title" id="title">
+                <label class="author-label" for="author">Author</label>
+                <input class="form-inputs author-input" type="text" name="author" id="author">
+                <label class="genre-label" for="genre">Genre</label>
+                <input class="form-inputs genre-input" type="text" name="genre" id="genre">
+                <input class="form-inputs submit-btn" type="submit" value="Search Books">
+            </form>
             </form>
         </div>
         <div class="book-cards">

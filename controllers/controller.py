@@ -4,8 +4,13 @@ from models.books import book_list, get_book, add_book, remove_book, update_chec
 from app import app
 
 
-@app.route("/books")
+@app.route("/books", methods=["GET"])
 def books():
+    if request.method == "GET":
+        title = request.args.get("search")
+        author = request.args.get("author")
+        genre = request.args.get("author")
+
     return render_template("books.html", books=book_list, error=False)
 
 @app.route("/books/<hyphenated_title>")

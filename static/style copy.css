@@ -19,17 +19,11 @@ body {
 
 h1 {
     margin-top: 0;
-    margin-bottom: 3rem;
     font-size: 2rem;
     text-align: center;
     font-family: 'Monoton', cursive;
     word-spacing: 0.5rem;
-}
 
-h2 {
-    text-align: center;
-    margin-top: 0;
-    font-size: 1.2rem;
 }
 
 header {
@@ -44,7 +38,7 @@ header {
 }
 
 #books {
-    margin: 3rem 0rem 1rem;
+    margin: 3rem 1rem 1rem;
     display: flex;
     justify-content: center;
     background-color: rgb(105, 210, 194);
@@ -55,7 +49,7 @@ header {
 .book-cards {
     display: grid;
     justify-content: space-around;
-    grid-template-columns: 15rem 15rem 15rem;
+    grid-template-columns: 30% 30% 30%;
 }
 
 .book-card {
@@ -109,68 +103,14 @@ form > input {
     font-weight: bold;
 }
 
-.form-header {
-    grid-area: form-header;
-    align-self: center;
-    justify-self: left;
-}
-
-.title-label {
-    grid-area: title-label;
-    justify-self: right;
-    padding-right: 0.5rem;
-}
-
-.title-input {
-    grid-area: title-input;
-}
-
-.author-label {
-    grid-area: author-label;
-    justify-self: right;
-    padding-right: 0.5rem;
-}
-
-.author-input {
-    grid-area: author-input;
-}
-
-.genre-label {
-    grid-area: genre-label;
-    justify-self: right;
-    padding-right: 0.5rem;
-}
-
-.genre-input {
-    grid-area: genre-input;
-}
-
-.submit-bt {
-    grid-area: submit-bt;
-}
-
-
-.books-form > form {
-    display: grid;
-    margin: 1rem 0 3rem;
-    align-items: end;
-    justify-items: stretch;
-    justify-content: center;
-    grid-template-columns: 10rem 5rem 20rem;
-    grid-template-areas: 
-      "form-header title-label title-input"
-      "form-header author-label author-input"
-      "form-header genre-label genre-input"
-      "form-header . submit-bt";
-}
-
-.submit-btn {
-    grid-column: 3 / -1;
+#add-book > form {
+    display: flex;
+    align-items: flex-end;
+    margin: 2rem 0;
 }
 
 .form-inputs {
-    /* max-width: 8rem;
-    min-width: 7.5rem; */
+    max-width: 8.5rem;
     margin-left: 0.5rem;
     margin-right: 1rem;
     font-family: 'Courier New', Courier, monospace;
@@ -211,64 +151,4 @@ form > input {
     display: flex;
     flex-direction: column;
     line-height: 1.5rem;
-}
-
-@media (max-width: 600px) {
-    .books-form > form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .books-form > form > input {
-        margin: 0 0 1rem;
-    }
-
-    .book-cards {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-}
-
-@media (max-width: 900px) {
-    #books {
-        width: 100%;
-        margin: 2rem;
-    }
-
-    .books-form > form {
-        display: grid;
-        margin: 1rem 0 3rem;
-        align-items: start;
-        justify-items: stretch;
-        justify-content: center;
-        grid-template-columns: 3rem 14rem;
-        grid-template-areas:
-          "form-header form-header"
-          "title-label title-input"
-          "author-label author-input"
-          "genre-label genre-input"
-          "submit-bt submit-bt";
-    }
-
-    .submit-btn {
-        grid-column: 2 / -1;
-    }
-
-    .form-header {
-        align-self: center;
-        justify-self: center;
-        padding-bottom: 1rem;
-    }
-
-    .books-form > form > input {
-        margin: 0 0 1rem;
-        justify-content: space-around;
-    }
-
-    .book-cards {
-        grid-template-columns: 15rem 15rem;
-    }
 }
