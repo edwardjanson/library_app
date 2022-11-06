@@ -10,7 +10,10 @@ class Book:
         self.check_out_logs = []
     
     def update_check_out(self, status):
+        # Update the check-out status
         self.is_checked_out = True if "checked-out" in status else False
+
+        # Record a new check-out log if the book is checked-out
         if self.is_checked_out:
             self.new_checkout_log()
     
@@ -37,6 +40,7 @@ class Book:
         return "".join(hyphenated_title)
     
     def new_checkout_log(self):
+        # Add a new dated and timed check-out log
         date_time = datetime.now().strftime("%m/%d/%Y %I:%M:%S %p")
         self.check_out_logs.insert(0, date_time)
 

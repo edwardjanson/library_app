@@ -44,7 +44,7 @@ header {
 }
 
 #books {
-    margin: 3rem 0rem 1rem;
+    margin: 3rem 0rem 3rem;
     display: flex;
     justify-content: center;
     background-color: rgb(105, 210, 194);
@@ -105,8 +105,11 @@ form > input {
 }
 
 #error-message {
+    display: flex;
+    justify-content: center;
     color: rgb(218, 90, 139);
     font-weight: bold;
+    margin-bottom: 3rem;
 }
 
 .form-header {
@@ -166,6 +169,12 @@ form > input {
 
 .submit-btn {
     grid-column: 3 / -1;
+}
+
+.no-books-found {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .form-inputs {

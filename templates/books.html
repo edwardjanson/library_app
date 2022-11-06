@@ -26,7 +26,7 @@
             </form>
         </div>
         <div class="books-form">
-            <form action="/books" method="get">
+            <form action="/books/search" method="get">
                 <h2 class="form-header">Search books</h2>
                 <label class="title-label" for="title">Title</label>
                 <input class="form-inputs title-input" type="text" name="title" id="title">
@@ -38,8 +38,9 @@
             </form>
             </form>
         </div>
+        {% if books %} 
         <div class="book-cards">
-            {% for book in books %} 
+            {% for book in books %}
             <div class="book-card">
                 <h2 class="card-header"><a href=/books/{{ book.hyphenate_title() }}>{{ book.title }}</a></h2>
                 <span>Update status:</span>
@@ -55,6 +56,9 @@
             </div>
             {% endfor %}
         </div>
+        {% else %}
+        <span class="no-books-found">No books found</span>
+        {% endif %}
     </div>
 </main>
 {% endblock %}
