@@ -19,7 +19,7 @@ class Book:
     
     def hyphenate_title(self):
         # Replace all non alphanumerical characters with a hyphen
-        hyphenated_title = [char.replace(char, "-") if not char.isalnum() else char for char in self.title]
+        hyphenated_title = [char.replace(char, "-") if not char.isalnum() else char.lower() for char in self.title]
 
         # Remove any starting, trailing, and consecutive hyphens
         index = 0
