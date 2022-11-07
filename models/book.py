@@ -31,7 +31,6 @@ class Book:
                 hyphenated_title.pop(-1)
                 index -= 1
             elif index != 0 and hyphenated_title[index] == "-" and hyphenated_title[index - 1] == "-":
-                print(hyphenated_title)
                 hyphenated_title.pop(index)
                 index -= 1
             else:

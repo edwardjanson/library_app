@@ -32,7 +32,6 @@ def search_book():
     title = request.args.get("title")
     author = request.args.get("author")
     genre = request.args.get("genre")
-    print(title)
 
     # Return a list of books that matches the search
     updated_books_list = book_list.copy()
